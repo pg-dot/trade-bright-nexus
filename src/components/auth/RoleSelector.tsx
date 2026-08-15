@@ -2,8 +2,8 @@ import type { Role } from "@/lib/role-context";
 import { cn } from "@/lib/utils";
 
 interface RoleSelectorProps {
-  value?: Role;
-  onChange?: (role: Role) => void;
+  value?: Role | undefined;
+  onChange?: ((role: Role) => void) | undefined;
 }
 
 const options: { role: Role; title: string; blurb: string; icon: string }[] = [
