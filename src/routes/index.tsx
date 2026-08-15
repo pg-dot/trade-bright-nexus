@@ -45,7 +45,7 @@ function Landing() {
       </header>
 
       <main className="mx-auto max-w-5xl px-6 py-20">
-        <StatusBadge tone="info">Smart India Hackathon 2025 · Mechanism A</StatusBadge>
+        
         <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
           A unified digital trade platform for exporters and importers
         </h1>
