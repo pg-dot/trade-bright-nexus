@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AdminOverviewPage } from "@/pages/AdminOverviewPage";
 
-export const Route = createFileRoute("/_shell/admin")({
+export const Route = createFileRoute("/_shell/admin/")({
   head: () => ({
     meta: [
       { title: "Admin overview — GLOBEX" },
