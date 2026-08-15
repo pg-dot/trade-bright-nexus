@@ -10,33 +10,228 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ShellRouteImport } from './routes/_shell'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ShellCompareRouteImport } from './routes/_shell.compare'
+import { Route as ShellComplianceRouteImport } from './routes/_shell.compliance'
+import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
+import { Route as ShellDisputesRouteImport } from './routes/_shell.disputes'
+import { Route as ShellTransactionsRouteImport } from './routes/_shell.transactions'
+import { Route as ShellTrustRouteImport } from './routes/_shell.trust'
+import { Route as ShellAdminIndexRouteImport } from './routes/_shell.admin.index'
+import { Route as ShellAdminDisputesRouteImport } from './routes/_shell.admin.disputes'
+import { Route as ShellAdminVerificationRouteImport } from './routes/_shell.admin.verification'
+import { Route as ShellListingsIndexRouteImport } from './routes/_shell.listings.index'
+import { Route as ShellListingsListingIdRouteImport } from './routes/_shell.listings.$listingId'
+import { Route as ShellListingsNewRouteImport } from './routes/_shell.listings.new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellRoute = ShellRouteImport.update({
+  id: '/_shell',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShellCompareRoute = ShellCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellComplianceRoute = ShellComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDashboardRoute = ShellDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellDisputesRoute = ShellDisputesRouteImport.update({
+  id: '/disputes',
+  path: '/disputes',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellTransactionsRoute = ShellTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellTrustRoute = ShellTrustRouteImport.update({
+  id: '/trust',
+  path: '/trust',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminIndexRoute = ShellAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminDisputesRoute = ShellAdminDisputesRouteImport.update({
+  id: '/admin/disputes',
+  path: '/admin/disputes',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAdminVerificationRoute = ShellAdminVerificationRouteImport.update({
+  id: '/admin/verification',
+  path: '/admin/verification',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellListingsIndexRoute = ShellListingsIndexRouteImport.update({
+  id: '/listings/',
+  path: '/listings/',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellListingsListingIdRoute = ShellListingsListingIdRouteImport.update({
+  id: '/listings/$listingId',
+  path: '/listings/$listingId',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellListingsNewRoute = ShellListingsNewRouteImport.update({
+  id: '/listings/new',
+  path: '/listings/new',
+  getParentRoute: () => ShellRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/compare': typeof ShellCompareRoute
+  '/compliance': typeof ShellComplianceRoute
+  '/dashboard': typeof ShellDashboardRoute
+  '/disputes': typeof ShellDisputesRoute
+  '/transactions': typeof ShellTransactionsRoute
+  '/trust': typeof ShellTrustRoute
+  '/admin/disputes': typeof ShellAdminDisputesRoute
+  '/admin/verification': typeof ShellAdminVerificationRoute
+  '/listings/$listingId': typeof ShellListingsListingIdRoute
+  '/listings/new': typeof ShellListingsNewRoute
+  '/admin/': typeof ShellAdminIndexRoute
+  '/listings/': typeof ShellListingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/compare': typeof ShellCompareRoute
+  '/compliance': typeof ShellComplianceRoute
+  '/dashboard': typeof ShellDashboardRoute
+  '/disputes': typeof ShellDisputesRoute
+  '/transactions': typeof ShellTransactionsRoute
+  '/trust': typeof ShellTrustRoute
+  '/admin/disputes': typeof ShellAdminDisputesRoute
+  '/admin/verification': typeof ShellAdminVerificationRoute
+  '/listings/$listingId': typeof ShellListingsListingIdRoute
+  '/listings/new': typeof ShellListingsNewRoute
+  '/admin': typeof ShellAdminIndexRoute
+  '/listings': typeof ShellListingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_shell': typeof ShellRouteWithChildren
+  '/login': typeof LoginRoute
+  '/onboarding': typeof OnboardingRoute
+  '/signup': typeof SignupRoute
+  '/_shell/compare': typeof ShellCompareRoute
+  '/_shell/compliance': typeof ShellComplianceRoute
+  '/_shell/dashboard': typeof ShellDashboardRoute
+  '/_shell/disputes': typeof ShellDisputesRoute
+  '/_shell/transactions': typeof ShellTransactionsRoute
+  '/_shell/trust': typeof ShellTrustRoute
+  '/_shell/admin/disputes': typeof ShellAdminDisputesRoute
+  '/_shell/admin/verification': typeof ShellAdminVerificationRoute
+  '/_shell/listings/$listingId': typeof ShellListingsListingIdRoute
+  '/_shell/listings/new': typeof ShellListingsNewRoute
+  '/_shell/admin/': typeof ShellAdminIndexRoute
+  '/_shell/listings/': typeof ShellListingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/onboarding'
+    | '/signup'
+    | '/compare'
+    | '/compliance'
+    | '/dashboard'
+    | '/disputes'
+    | '/transactions'
+    | '/trust'
+    | '/admin/disputes'
+    | '/admin/verification'
+    | '/listings/$listingId'
+    | '/listings/new'
+    | '/admin/'
+    | '/listings/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/onboarding'
+    | '/signup'
+    | '/compare'
+    | '/compliance'
+    | '/dashboard'
+    | '/disputes'
+    | '/transactions'
+    | '/trust'
+    | '/admin/disputes'
+    | '/admin/verification'
+    | '/listings/$listingId'
+    | '/listings/new'
+    | '/admin'
+    | '/listings'
+  id:
+    | '__root__'
+    | '/'
+    | '/_shell'
+    | '/login'
+    | '/onboarding'
+    | '/signup'
+    | '/_shell/compare'
+    | '/_shell/compliance'
+    | '/_shell/dashboard'
+    | '/_shell/disputes'
+    | '/_shell/transactions'
+    | '/_shell/trust'
+    | '/_shell/admin/disputes'
+    | '/_shell/admin/verification'
+    | '/_shell/listings/$listingId'
+    | '/_shell/listings/new'
+    | '/_shell/admin/'
+    | '/_shell/listings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ShellRoute: typeof ShellRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  OnboardingRoute: typeof OnboardingRoute
+  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +243,159 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_shell': {
+      id: '/_shell'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ShellRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_shell/compare': {
+      id: '/_shell/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof ShellCompareRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/compliance': {
+      id: '/_shell/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof ShellComplianceRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/dashboard': {
+      id: '/_shell/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof ShellDashboardRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/disputes': {
+      id: '/_shell/disputes'
+      path: '/disputes'
+      fullPath: '/disputes'
+      preLoaderRoute: typeof ShellDisputesRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/transactions': {
+      id: '/_shell/transactions'
+      path: '/transactions'
+      fullPath: '/transactions'
+      preLoaderRoute: typeof ShellTransactionsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/trust': {
+      id: '/_shell/trust'
+      path: '/trust'
+      fullPath: '/trust'
+      preLoaderRoute: typeof ShellTrustRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/': {
+      id: '/_shell/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof ShellAdminIndexRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/disputes': {
+      id: '/_shell/admin/disputes'
+      path: '/admin/disputes'
+      fullPath: '/admin/disputes'
+      preLoaderRoute: typeof ShellAdminDisputesRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/admin/verification': {
+      id: '/_shell/admin/verification'
+      path: '/admin/verification'
+      fullPath: '/admin/verification'
+      preLoaderRoute: typeof ShellAdminVerificationRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/listings/': {
+      id: '/_shell/listings/'
+      path: '/listings'
+      fullPath: '/listings/'
+      preLoaderRoute: typeof ShellListingsIndexRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/listings/$listingId': {
+      id: '/_shell/listings/$listingId'
+      path: '/listings/$listingId'
+      fullPath: '/listings/$listingId'
+      preLoaderRoute: typeof ShellListingsListingIdRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/listings/new': {
+      id: '/_shell/listings/new'
+      path: '/listings/new'
+      fullPath: '/listings/new'
+      preLoaderRoute: typeof ShellListingsNewRouteImport
+      parentRoute: typeof ShellRoute
+    }
   }
 }
 
+interface ShellRouteChildren {
+  ShellCompareRoute: typeof ShellCompareRoute
+  ShellComplianceRoute: typeof ShellComplianceRoute
+  ShellDashboardRoute: typeof ShellDashboardRoute
+  ShellDisputesRoute: typeof ShellDisputesRoute
+  ShellTransactionsRoute: typeof ShellTransactionsRoute
+  ShellTrustRoute: typeof ShellTrustRoute
+  ShellAdminDisputesRoute: typeof ShellAdminDisputesRoute
+  ShellAdminVerificationRoute: typeof ShellAdminVerificationRoute
+  ShellListingsListingIdRoute: typeof ShellListingsListingIdRoute
+  ShellListingsNewRoute: typeof ShellListingsNewRoute
+  ShellAdminIndexRoute: typeof ShellAdminIndexRoute
+  ShellListingsIndexRoute: typeof ShellListingsIndexRoute
+}
+
+const ShellRouteChildren: ShellRouteChildren = {
+  ShellCompareRoute: ShellCompareRoute,
+  ShellComplianceRoute: ShellComplianceRoute,
+  ShellDashboardRoute: ShellDashboardRoute,
+  ShellDisputesRoute: ShellDisputesRoute,
+  ShellTransactionsRoute: ShellTransactionsRoute,
+  ShellTrustRoute: ShellTrustRoute,
+  ShellAdminDisputesRoute: ShellAdminDisputesRoute,
+  ShellAdminVerificationRoute: ShellAdminVerificationRoute,
+  ShellListingsListingIdRoute: ShellListingsListingIdRoute,
+  ShellListingsNewRoute: ShellListingsNewRoute,
+  ShellAdminIndexRoute: ShellAdminIndexRoute,
+  ShellListingsIndexRoute: ShellListingsIndexRoute,
+}
+
+const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ShellRoute: ShellRouteWithChildren,
+  LoginRoute: LoginRoute,
+  OnboardingRoute: OnboardingRoute,
+  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
