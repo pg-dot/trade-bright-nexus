@@ -30,7 +30,7 @@ export function EscrowStatusTracker({
           </p>
         </div>
         <StatusBadge tone={currentStep >= 3 ? "success" : "info"}>
-          {steps[Math.min(currentStep, steps.length - 1)].label}
+          {steps[Math.min(currentStep, steps.length - 1)]?.label}
         </StatusBadge>
       </header>
       <Stepper steps={steps} currentStep={currentStep} />
