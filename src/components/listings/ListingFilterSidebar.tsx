@@ -62,7 +62,7 @@ export function ListingFilterSidebar({ filters, onChange }: ListingFilterSidebar
           min={1}
           max={100}
           step={1}
-          onValueChange={([v]) => onChange?.({ ...current, maxPrice: v })}
+          onValueChange={(v) => onChange?.({ ...current, maxPrice: v[0] ?? current.maxPrice })}
         />
         <p className="text-xs text-muted-foreground">Up to ${current.maxPrice}</p>
       </div>
